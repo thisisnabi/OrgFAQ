@@ -23,9 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
-    <Folder Include="Infrastructure\Repositories\" />
-    <Folder Include="Services\" />
+    <Folder Include="Infrastructure\Migrations\" />
   </ItemGroup>
 
 </Project>

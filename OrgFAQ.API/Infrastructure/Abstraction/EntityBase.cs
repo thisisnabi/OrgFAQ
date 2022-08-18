@@ -16,7 +16,7 @@ public abstract class EntityBase
             _Id = value;
         }
     }
-
+     
     public bool IsTransient() => Id == default;
 
     public override int GetHashCode()
