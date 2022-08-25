@@ -1,6 +1,6 @@
 ﻿namespace OrgFAQ.API.Infrastructure;
 
-public class OrgFAQContext : IdentityDbContext<ApplicationUser>, IUnitOfWork
+public class OrgFAQContext : IdentityDbContext<ApplicationUser,ApplicationRole,int>, IUnitOfWork
 {
     public const string DEFAULT_SCHEMA = "org_faq";
 
