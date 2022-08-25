@@ -2,10 +2,10 @@
 
 namespace OrgFAQ.API.Infrastructure.Mvc
 {
-    public class APIController : ControllerBase
+    public abstract class OrgFAQController : ControllerBase
     {
         private readonly IValidationDictionary _validationDictionary;
-        public APIController(IValidationDictionary validationDictionary)
+        public OrgFAQController(IValidationDictionary validationDictionary)
         {
             _validationDictionary = validationDictionary;   
             _validationDictionary.SetModelState(ModelState);
