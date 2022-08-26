@@ -10,4 +10,6 @@ public class ApplicationUser : IdentityUser<int>
 
     public ICollection<Question> Questions { get; set; }
 
+    public ICollection<Comment> Comments { get; set; }
+
 }

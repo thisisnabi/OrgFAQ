@@ -15,7 +15,19 @@ public class OrgFAQContext : IdentityDbContext<ApplicationUser,ApplicationRole,i
     {
         base.OnModelCreating(modelBuilder);
         modelBuilder.ApplyConfiguration(new QuestionEntityTypeConfiguration());
+        modelBuilder.ApplyConfiguration(new CategoryEntityTypeConfiguration());
+        modelBuilder.ApplyConfiguration(new TagEntityTypeConfiguration());
+        modelBuilder.ApplyConfiguration(new QuestionTagEntityTypeConfiguration());
+        modelBuilder.ApplyConfiguration(new CommentEntityTypeConfiguration());
+
+        // Identity
         modelBuilder.ApplyConfiguration(new ApplicationUserEntityTypeConfiguration());
+        modelBuilder.ApplyConfiguration(new ApplicationRoleEntityTypeConfiguration());
+        modelBuilder.ApplyConfiguration(new IdentityRoleClaimEntityTypeConfiguration());
+        modelBuilder.ApplyConfiguration(new IdentityUserClaimEntityTypeConfiguration());
+        modelBuilder.ApplyConfiguration(new IdentityUserLoginEntityTypeConfiguration());
+        modelBuilder.ApplyConfiguration(new IdentityUserRoleEntityTypeConfiguration());
+        modelBuilder.ApplyConfiguration(new IdentityUserTokenEntityTypeConfiguration());
 
     }
 

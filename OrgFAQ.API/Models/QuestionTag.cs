@@ -1,6 +1,6 @@
 ﻿namespace OrgFAQ.API.Models;
 
-public class QuestionTag
+public class QuestionTag : EntityBase
 {
     public int QuestionId { get; set; }
     public int TagId { get; set; }

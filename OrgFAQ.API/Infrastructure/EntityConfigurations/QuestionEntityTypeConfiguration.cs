@@ -10,6 +10,9 @@ class QuestionEntityTypeConfiguration : IEntityTypeConfiguration<Question>
 
         questionBuilder.Property(b => b.Id)
             .UseHiLo("QuestionSqc", OrgFAQContext.DEFAULT_SCHEMA);
+        
+        questionBuilder.Property(b => b.UserId)
+            .IsRequired();
 
         questionBuilder.Property(b => b.Title)
             .HasMaxLength(400)
@@ -22,16 +25,14 @@ class QuestionEntityTypeConfiguration : IEntityTypeConfiguration<Question>
             .IsRequired()
             .HasDefaultValueSql("GETDATE()");
 
-        questionBuilder.Property(b => b.UserId)
-            .IsRequired();
-        
-        //postConfiguration.HasMany(b => b.PaymentMethods)
-        //    .WithOne()
-        //    .HasForeignKey("BuyerId")
-        //    .OnDelete(DeleteBehavior.Cascade);
+        questionBuilder.HasMany(question => question.Comments)
+            .WithOne(comment => comment.Question)
+            .HasForeignKey(comment => comment.QuestionId)
+            .OnDelete(DeleteBehavior.Cascade);
 
-        //var navigation = buyerConfiguration.Metadata.FindNavigation(nameof(Buyer.PaymentMethods));
-
-        //navigation.SetPropertyAccessMode(PropertyAccessMode.Field);
+        questionBuilder.HasMany(b => b.Tags)
+            .WithOne(tagQuestion => tagQuestion.Question)
+            .HasForeignKey(tagQuestion => tagQuestion.QuestionId)
+            .OnDelete(DeleteBehavior.Cascade);
     }
 }

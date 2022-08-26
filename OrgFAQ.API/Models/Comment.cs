@@ -11,7 +11,7 @@ public class Comment : EntityBase
     public ApplicationUser User{ get; set; }
     public Question Question { get; set; }
 
-    public int ParretCommentId { get; set; }
+    public int ParentCommentId { get; set; }
     public Comment ParentComment { get; set; }
 
     public ICollection<Comment> ChildrenCommnet { get; set; }
